@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>招聘证据工作台</title>
 <style>
-:root{--ink:#13263f;--muted:#64748b;--blue:#2563eb;--navy:#102f59;--line:#dce5f0;--soft:#f5f8fc;--green:#07835d;--amber:#b8630a;--red:#bd3d4c;--purple:#7c3aed}*{box-sizing:border-box}body{margin:0;background:var(--soft);font:15px/1.6 "Microsoft YaHei",system-ui,color:var(--ink)}button,input,textarea,select{font:inherit}button{cursor:pointer}.top{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 42px}.brand{font-weight:800;font-size:18px}.brand i{font-style:normal;color:var(--blue)}.container{max-width:1120px;margin:auto;padding:28px 24px 56px}.hero{display:flex;justify-content:space-between;align-items:center;padding:22px 25px;background:linear-gradient(115deg,#102f59,#2a66c4);border-radius:16px;color:white}.hero h1{font-size:23px;margin:0 0 4px}.hero p{margin:0;color:#d8e8ff}.badge{border:1px solid #ffffff55;background:#ffffff18;border-radius:99px;padding:5px 10px;font-size:12px}.progress{display:flex;align-items:center;max-width:720px;margin:25px auto 28px}.pstep{display:flex;align-items:center;gap:8px;color:#8290a5;font-weight:bold;font-size:13px;cursor:pointer}.pstep:after{content:"";width:80px;height:2px;background:#d7e1ef;margin:0 12px}.pstep:last-child:after{display:none}.circle{height:25px;width:25px;border-radius:50%;display:grid;place-items:center;background:#dce5f0;color:#6b7a91;font-size:12px}.pstep.active{color:var(--blue)}.pstep.active .circle,.pstep.done .circle{color:white;background:var(--blue)}.screen{display:none}.screen.active{display:block}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:25px;box-shadow:0 4px 14px #15375c0a}.title{text-align:center;margin-bottom:23px}.title h2{font-size:20px;margin:0 0 5px}.hint{font-size:13px;color:var(--muted)}.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}.option{border:1px solid var(--line);border-radius:12px;padding:22px;min-height:195px}.option h3{margin:0 0 8px;font-size:16px}.drop{height:112px;border:1.5px dashed #9ab7e5;border-radius:9px;background:#f7faff;display:grid;place-items:center;text-align:center;color:#245aab;margin-top:14px;cursor:pointer}.drop input{display:none}.field{margin-top:16px}.field label{display:block;font-weight:bold;font-size:13px;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid #c9d6e7;border-radius:8px;padding:10px;outline-color:var(--blue)}textarea{resize:vertical;min-height:98px}.buttonrow{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:10px;flex-wrap:wrap}.btn{border-radius:8px;padding:10px 15px;border:1px solid transparent;font-weight:bold}.primary{color:#fff;background:var(--blue)}.ghost{color:#345778;background:#fff;border-color:#c9d8ea}.small{padding:6px 10px;font-size:12px}.danger{color:var(--red);background:#fff;border:0;margin-left:10px;font-size:12px}.filelist{display:grid;gap:7px;margin-top:10px}.file{display:flex;justify-content:space-between;background:#f5f8fd;border-radius:7px;padding:7px 9px;font-size:12px}.file button{border:0;color:var(--red);background:none}.notice{display:none;margin-top:13px;background:#eaf8f2;color:#087a58;padding:10px;border-radius:7px;font-size:13px}.records{display:grid;gap:10px}.record{border:1px solid var(--line);border-radius:10px;overflow:hidden}.record summary{list-style:none;cursor:pointer;padding:13px 15px;display:flex;justify-content:space-between;align-items:center;font-weight:bold}.record summary::-webkit-details-marker{display:none}.record summary span{font-size:12px;font-weight:normal;color:var(--muted)}.record[open] summary{border-bottom:1px solid var(--line);background:#f8fbff}.recordbody{padding:14px}.recordbody select{width:170px;padding:7px;border:1px solid #c9d6e7;border-radius:7px;margin-bottom:9px}.recordbody textarea{min-height:110px}.focus{display:flex;gap:8px;align-items:center;margin-top:16px;background:#f4f8ff;padding:12px;border-radius:8px}.focus select{border:0;background:transparent;flex:1;color:var(--ink)}.loading{display:none;text-align:center;padding:20px;color:var(--blue)}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.metric{background:#f5f8fd;border:1px solid #e1eaf4;border-radius:9px;padding:11px}.metric b{font-size:20px;color:var(--blue);display:block}.layout{display:grid;grid-template-columns:1.35fr .85fr;gap:18px}.evidence{border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:10px}.etop{display:flex;justify-content:space-between;align-items:center}.pill{padding:3px 8px;border-radius:99px;font-size:11px;font-weight:bold;margin-left:6px}.high{background:#e6f7f0;color:var(--green)}.medium{background:#fff4df;color:var(--amber)}.low{background:#fff0f2;color:var(--red)}.line{font-size:13px;background:#f8fafc;padding:7px 9px;border-left:3px solid #22a276;border-radius:4px;margin-top:8px}.counter{border-left-color:#d58d24}.claim{border-left-color:var(--purple)}.inference{border-left-color:#64748b}.source{color:var(--muted);font-size:11px;margin-top:8px}.question{font-size:13px;padding:11px;border-left:3px solid var(--blue);background:#f4f8ff;border-radius:4px;margin:8px 0}.owner{font-size:11px;color:#2459ae;font-weight:bold;margin-bottom:3px}.risk{font-size:12px;padding:10px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:8px;margin-top:9px}.boundary{font-size:12px;padding:11px;background:#eef5ff;border:1px solid #c9dcff;color:#1d4f9c;border-radius:8px;margin-top:12px}.audit{margin-top:9px;color:var(--muted);font-size:12px}.toast{position:fixed;right:22px;bottom:22px;background:#102f59;color:#fff;padding:11px 14px;border-radius:8px;box-shadow:0 5px 17px #0003;z-index:5;max-width:320px}.hidden{display:none!important}.std-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:16px 0}.std-card{border:1px solid var(--line);border-radius:10px;padding:14px;background:#fbfdff}.std-card h4{margin:0 0 6px;font-size:14px;color:var(--navy)}.std-card p{margin:0;font-size:12px;color:var(--muted);line-height:1.5}.std-owner{font-size:11px;color:var(--blue);font-weight:bold;margin-top:8px}.history-entry{display:flex;justify-content:space-between;align-items:center;padding:10px;border:1px solid var(--line);border-radius:8px;margin-bottom:8px;background:#fff}.history-entry:hover{background:#f8fbff}.modal{position:fixed;inset:0;background:#0006;display:none;align-items:center;justify-content:center;z-index:10}.modal.open{display:flex}.modal-box{background:#fff;border-radius:14px;padding:24px;width:90%;max-width:460px}.modal-box h3{margin-top:0}.modal-box textarea{width:100%;min-height:90px;margin:10px 0}.tag{font-size:11px;padding:2px 7px;border-radius:99px;background:#e2e8f0;color:#475569;margin-left:6px}.warn{background:#fff0f2;color:var(--red)}.compliance{background:#e6f7f0;color:var(--green)}@media(max-width:760px){.split,.layout{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.hero{display:block}.badge{display:inline-block;margin-top:12px}.pstep:after{width:20px;margin:0 6px}.pstep{font-size:11px}.top{padding:0 16px}.container{padding:18px 14px}}
+:root{--ink:#13263f;--muted:#64748b;--blue:#2563eb;--navy:#102f59;--line:#dce5f0;--soft:#f5f8fc;--green:#07835d;--amber:#b8630a;--red:#bd3d4c;--purple:#7c3aed}*{box-sizing:border-box}body{margin:0;background:var(--soft);font:15px/1.6 "Microsoft YaHei",system-ui,color:var(--ink)}button,input,textarea,select{font:inherit}button{cursor:pointer}.top{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 42px}.brand{font-weight:800;font-size:18px}.brand i{font-style:normal;color:var(--blue)}.container{max-width:1120px;margin:auto;padding:28px 24px 56px}.hero{display:flex;justify-content:space-between;align-items:center;padding:22px 25px;background:linear-gradient(115deg,#102f59,#2a66c4);border-radius:16px;color:white}.hero h1{font-size:23px;margin:0 0 4px}.hero p{margin:0;color:#d8e8ff}.badge{border:1px solid #ffffff55;background:#ffffff18;border-radius:99px;padding:5px 10px;font-size:12px}.progress{display:flex;align-items:center;max-width:720px;margin:25px auto 28px}.pstep{display:flex;align-items:center;gap:8px;color:#8290a5;font-weight:bold;font-size:13px;cursor:pointer}.pstep:after{content:"";width:80px;height:2px;background:#d7e1ef;margin:0 12px}.pstep:last-child:after{display:none}.circle{height:25px;width:25px;border-radius:50%;display:grid;place-items:center;background:#dce5f0;color:#6b7a91;font-size:12px}.pstep.active{color:var(--blue)}.pstep.active .circle,.pstep.done .circle{color:white;background:var(--blue)}.screen{display:none}.screen.active{display:block}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:25px;box-shadow:0 4px 14px #15375c0a}.title{text-align:center;margin-bottom:23px}.title h2{font-size:20px;margin:0 0 5px}.hint{font-size:13px;color:var(--muted)}.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}.option{border:1px solid var(--line);border-radius:12px;padding:22px;min-height:195px}.option h3{margin:0 0 8px;font-size:16px}.drop{height:112px;border:1.5px dashed #9ab7e5;border-radius:9px;background:#f7faff;display:grid;place-items:center;text-align:center;color:#245aab;margin-top:14px;cursor:pointer}.drop input{display:none}.field{margin-top:16px}.field label{display:block;font-weight:bold;font-size:13px;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid #c9d6e7;border-radius:8px;padding:10px;outline-color:var(--blue)}textarea{resize:vertical;min-height:120px}#material{min-height:260px}.buttonrow{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:10px;flex-wrap:wrap}.btn{border-radius:8px;padding:10px 15px;border:1px solid transparent;font-weight:bold}.primary{color:#fff;background:var(--blue)}.ghost{color:#345778;background:#fff;border-color:#c9d8ea}.small{padding:6px 10px;font-size:12px}.danger{color:var(--red);background:#fff;border:0;margin-left:10px;font-size:12px}.filelist{display:grid;gap:7px;margin-top:10px}.file{display:flex;justify-content:space-between;background:#f5f8fd;border-radius:7px;padding:7px 9px;font-size:12px}.file button{border:0;color:var(--red);background:none}.notice{display:none;margin-top:13px;background:#eaf8f2;color:#087a58;padding:10px;border-radius:7px;font-size:13px}.records{display:grid;gap:10px}.record{border:1px solid var(--line);border-radius:10px;overflow:hidden}.record summary{list-style:none;cursor:pointer;padding:13px 15px;display:flex;justify-content:space-between;align-items:center;font-weight:bold}.record summary::-webkit-details-marker{display:none}.record summary span{font-size:12px;font-weight:normal;color:var(--muted)}.record[open] summary{border-bottom:1px solid var(--line);background:#f8fbff}.recordbody{padding:14px}.recordbody select{width:170px;padding:7px;border:1px solid #c9d6e7;border-radius:7px;margin-bottom:9px}.recordbody textarea{min-height:160px}.focus{display:flex;gap:8px;align-items:center;margin-top:16px;background:#f4f8ff;padding:12px;border-radius:8px}.focus select{border:0;background:transparent;flex:1;color:var(--ink)}.loading{display:none;text-align:center;padding:20px;color:var(--blue)}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.metric{background:#f5f8fd;border:1px solid #e1eaf4;border-radius:9px;padding:11px}.metric b{font-size:20px;color:var(--blue);display:block}.layout{display:grid;grid-template-columns:1.35fr .85fr;gap:18px}.evidence{border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:10px}.etop{display:flex;justify-content:space-between;align-items:center}.pill{padding:3px 8px;border-radius:99px;font-size:11px;font-weight:bold;margin-left:6px}.high{background:#e6f7f0;color:var(--green)}.medium{background:#fff4df;color:var(--amber)}.low{background:#fff0f2;color:var(--red)}.line{font-size:13px;background:#f8fafc;padding:7px 9px;border-left:3px solid #22a276;border-radius:4px;margin-top:8px}.counter{border-left-color:#d58d24}.claim{border-left-color:var(--purple)}.inference{border-left-color:#64748b}.source{color:var(--muted);font-size:11px;margin-top:8px}.question{font-size:13px;padding:11px;border-left:3px solid var(--blue);background:#f4f8ff;border-radius:4px;margin:8px 0}.owner{font-size:11px;color:#2459ae;font-weight:bold;margin-bottom:3px}.risk{font-size:12px;padding:10px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:8px;margin-top:9px}.boundary{font-size:12px;padding:11px;background:#eef5ff;border:1px solid #c9dcff;color:#1d4f9c;border-radius:8px;margin-top:12px}.audit{margin-top:9px;color:var(--muted);font-size:12px}.toast{position:fixed;right:22px;bottom:22px;background:#102f59;color:#fff;padding:11px 14px;border-radius:8px;box-shadow:0 5px 17px #0003;z-index:5;max-width:320px}.hidden{display:none!important}.std-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:16px 0}.std-card{border:1px solid var(--line);border-radius:10px;padding:14px;background:#fbfdff}.std-card h4{margin:0 0 6px;font-size:14px;color:var(--navy)}.std-card p{margin:0;font-size:12px;color:var(--muted);line-height:1.5}.std-owner{font-size:11px;color:var(--blue);font-weight:bold;margin-top:8px}.history-entry{display:flex;justify-content:space-between;align-items:center;padding:10px;border:1px solid var(--line);border-radius:8px;margin-bottom:8px;background:#fff}.history-entry:hover{background:#f8fbff}.modal{position:fixed;inset:0;background:#0006;display:none;align-items:center;justify-content:center;z-index:10}.modal.open{display:flex}.modal-box{background:#fff;border-radius:14px;padding:24px;width:90%;max-width:460px}.modal-box h3{margin-top:0}.modal-box textarea{width:100%;min-height:90px;margin:10px 0}.tag{font-size:11px;padding:2px 7px;border-radius:99px;background:#e2e8f0;color:#475569;margin-left:6px}.warn{background:#fff0f2;color:var(--red)}.compliance{background:#e6f7f0;color:var(--green)}@media(max-width:760px){.split,.layout{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.hero{display:block}.badge{display:inline-block;margin-top:12px}.pstep:after{width:20px;margin:0 6px}.pstep{font-size:11px}.top{padding:0 16px}.container{padding:18px 14px}}
 </style>
 </head>
 <body>
@@ -71,7 +71,7 @@
           <div class="hint">没有文件时，粘贴候选人的简历/作品/补充说明即可。</div>
           <div class="field">
             <label>候选人编号</label>
-            <input id="candidateId" placeholder="例如 C-017">
+            <input id="candidateId" placeholder="例如 C-017" onchange="onCandidateIdChange()" onblur="onCandidateIdChange()">
           </div>
           <div class="field">
             <label>候选人材料</label>
@@ -194,10 +194,7 @@
 <div class="toast hidden" id="toast"></div>
 
 <script>
-let uploaded = [];
-let lastAnalysis = null;
-let standards = {};
-let currentCandidateId = "";
+let uploaded = [], lastAnalysis = null, standards = {}, currentCandidateId = "", sessionCache = {};
 const $ = s => document.querySelector(s);
 
 function notify(t) {
@@ -208,6 +205,63 @@ function notify(t) {
 }
 function esc(t) {
   return String(t).replace(/[&<>]/g, x => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[x]));
+}
+
+// 会话缓存：按 candidate_id 绑定材料和面试记录
+function cacheCurrentSession() {
+  let cid = currentCandidateId || $("#candidateId").value.trim();
+  if (!cid) return;
+  sessionCache[cid] = {
+    candidate_id: cid,
+    candidate_material: $("#material").value,
+    interview_records: recordsData(),
+    focus: $("#focus").value,
+    updated_at: new Date().toISOString()
+  };
+}
+async function loadSessionForCandidate(cid) {
+  if (!cid) return;
+  // 先尝试从服务端加载已保存的正式会话
+  try {
+    let r = await fetch("/history/" + encodeURIComponent(cid));
+    if (r.ok) {
+      let d = await r.json();
+      if (d.session) {
+        $("#material").value = d.session.candidate_material || "";
+        $("#focus").value = d.session.focus || "";
+        $("#records").innerHTML = "";
+        (d.session.interview_records || []).forEach(x => addRecord(x.source, x.content, x.record_type || "事实观察", false));
+        currentCandidateId = cid;
+        notify("已加载候选人 " + cid + " 的保存记录");
+        return;
+      }
+    }
+  } catch (e) {
+    // 后端不可用或没有记录，回退到本地缓存
+  }
+  // 回退到本地缓存
+  if (sessionCache[cid]) {
+    $("#material").value = sessionCache[cid].candidate_material || "";
+    $("#focus").value = sessionCache[cid].focus || "";
+    $("#records").innerHTML = "";
+    (sessionCache[cid].interview_records || []).forEach(x => addRecord(x.source, x.content, x.record_type || "事实观察", false));
+    currentCandidateId = cid;
+    notify("已恢复候选人 " + cid + " 的编辑记录");
+    return;
+  }
+  // 全新用户：清空材料和记录
+  $("#material").value = "";
+  $("#records").innerHTML = "";
+  $("#focus").value = "";
+  currentCandidateId = cid;
+}
+function onCandidateIdChange() {
+  let newCid = $("#candidateId").value.trim();
+  if (newCid === currentCandidateId) return;
+  // 保存当前 ID 的编辑状态
+  cacheCurrentSession();
+  // 加载新 ID 的状态
+  loadSessionForCandidate(newCid);
 }
 function setNav(n) {
   for (let i = 0; i <= 3; i++) {
@@ -256,11 +310,12 @@ function addRecord(source = "技术面记录", content = "", recordType = "事�
   e.querySelector(".rec-source").value = source;
   e.querySelector(".rec-type").value = recordType;
   e.querySelector("textarea").value = content;
-  e.querySelector(".rec-source").onchange = () => { e.querySelector("summary b").textContent = e.querySelector(".rec-source").value };
-  e.querySelector(".rec-type").onchange = () => { updateRecordSummary(e) };
-  e.querySelector(".danger").onclick = () => e.remove();
-  e.querySelector("textarea").oninput = () => updateRecordSummary(e);
+  e.querySelector(".rec-source").onchange = () => { e.querySelector("summary b").textContent = e.querySelector(".rec-source").value; cacheCurrentSession(); };
+  e.querySelector(".rec-type").onchange = () => { updateRecordSummary(e); cacheCurrentSession(); };
+  e.querySelector(".danger").onclick = () => { e.remove(); cacheCurrentSession(); };
+  e.querySelector("textarea").oninput = () => { updateRecordSummary(e); cacheCurrentSession(); };
   $("#records").appendChild(e);
+  cacheCurrentSession();
 }
 function updateRecordSummary(e) {
   let t = e.querySelector(".rec-type").value;
@@ -306,7 +361,10 @@ async function importFiles(fs) {
     uploaded.push({name: f.name, text});
     try {
       let j = JSON.parse(text);
-      if (j.candidate_id) $("#candidateId").value = j.candidate_id;
+      if (j.candidate_id) {
+        $("#candidateId").value = j.candidate_id;
+        currentCandidateId = j.candidate_id;
+      }
       if (j.candidate_material) {
         let cur = $("#material").value.trim();
         $("#material").value = cur ? cur + "\n\n" + j.candidate_material : j.candidate_material;
@@ -334,7 +392,9 @@ $("#drop").ondrop = e => { e.preventDefault(); $("#drop").style.background = "";
 
 // 示例
 function loadDemo() {
+  cacheCurrentSession();
   $("#candidateId").value = "C-017";
+  currentCandidateId = "C-017";
   $("#material").value = DEMO.candidate_material;
   $("#records").innerHTML = "";
   DEMO.interview_records.forEach(x => addRecord(x.source, x.content, x.record_type || "事实观察"));
@@ -518,6 +578,7 @@ async function loadHistory(cid) {
     if (!r.ok) throw new Error(d.error);
     if (d.session) {
       $("#candidateId").value = d.session.candidate_id || cid;
+      currentCandidateId = d.session.candidate_id || cid;
       $("#material").value = d.session.candidate_material || "";
       $("#focus").value = d.session.focus || "";
       $("#records").innerHTML = "";
@@ -535,6 +596,7 @@ async function loadHistory(cid) {
 }
 function newSession() {
   $("#candidateId").value = "";
+  currentCandidateId = "";
   $("#material").value = "";
   $("#records").innerHTML = "";
   $("#focus").value = "";
@@ -556,6 +618,8 @@ const DEMO = {
     {source: "HR 初访记录", content: "候选人表示客服助手已在团队使用，但没有掌握日活数据。项目结束后交给运营维护 Prompt，具体交接方法尚未展开。", record_type: "事实观察"}
   ]
 };
+$("#material").oninput = () => cacheCurrentSession();
+$("#focus").onchange = () => cacheCurrentSession();
 loadStandards();
 </script>
 </body>

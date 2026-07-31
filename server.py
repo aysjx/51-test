@@ -44,7 +44,7 @@ def safe_id(cid: str) -> str:
 
 def candidate_dir(cid: str) -> Path:
     d = DATA_DIR / safe_id(cid)
-    d.mkdir(exist_ok=True)
+    d.mkdir(parents=True, exist_ok=True)
     return d
 
 

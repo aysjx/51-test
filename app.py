@@ -79,11 +79,16 @@ STANDARDS = {
     },
 }
 
-# 敏感属性：仅作合规检测，不作为能力判断依据
+# 敏感属性与潜在偏见词：仅作合规检测，不作为能力判断依据
 SENSITIVE_WORDS = [
+    # 法定敏感属性
     "年龄", "性别", "婚育", "民族", "籍贯", "照片", "健康", "身高", "体重",
     "婚姻", "已婚", "未婚", "党员", "星座", "血型", "宗教信仰", "残疾",
     "age", "gender", "married", "nationality", "photo", "health", "religion", "disability",
+    # 常见直接出现的性别/年龄表达
+    "男", "女", "岁", "汉族",
+    # 潜在偏见替代指标（不应作为能力判断依据）
+    "名校", "清华", "北大", "985", "211", "大厂", "前公司", "前雇主",
 ]
 
 # 提示注入/绕过规则检测（中、英文变体）
@@ -219,6 +224,34 @@ def evidence_label(ev_type: str, is_counter: bool, source_kind: str) -> str:
     return "证据"
 
 
+# 面试官记录冲突检测词
+CONFLICT_POSITIVE = ["主动", "认可", "优秀", "充分", "扎实", "明确", "一致", "推动", "落地", "积极"]
+CONFLICT_NEGATIVE = ["被动", "不认可", "薄弱", "不足", "无法落地", "未落地", "不清晰", "分歧", "冲突", "没有掌握", "尚未展开", "未提供"]
+
+
+def detect_conflict(sources: list) -> list:
+    """检测同一标准下不同面试官记录是否存在冲突。"""
+    if len(sources) < 2:
+        return []
+    # 按来源标签分组，取最正面/负面的倾向
+    pos_sources = set()
+    neg_sources = set()
+    for src in sources:
+        label, _, text = src.partition("：")
+        lower = text.lower()
+        if any(w in lower for w in CONFLICT_POSITIVE):
+            pos_sources.add(label)
+        if any(w in lower for w in CONFLICT_NEGATIVE):
+            neg_sources.add(label)
+    # 排除同一来源同时正负面（自身矛盾另说）
+    conflict_pairs = []
+    for p in pos_sources:
+        for n in neg_sources:
+            if p != n:
+                conflict_pairs.append(f"{p} 与 {n} 对同一标准评价不一致，建议人工核实。")
+    return conflict_pairs
+
+
 # ---------------------------------------------------------------------------
 # 核心分析函数
 # ---------------------------------------------------------------------------
@@ -312,6 +345,11 @@ def analyze(payload: dict, request_id: str = None) -> dict:
         counters = list({json.dumps(s, ensure_ascii=False): s for s in counters}.values())
         sources = list(dict.fromkeys(sources))
 
+        # 冲突检测
+        conflict_notes = detect_conflict(sources)
+        if conflict_notes:
+            evidence_gaps.append(f"{criterion} 不同面试官记录存在冲突；建议人工核实。")
+
         # 缺口判定
         has_fact = any(s["type"] == "fact_observed" and s not in counters for s in supports)
         has_self_claim = any(s["type"] == "self_claim" for s in supports)
@@ -325,7 +363,7 @@ def analyze(payload: dict, request_id: str = None) -> dict:
             evidence_gaps.append(f"{criterion} 当前证据为推断，需补充直接观察。")
 
         # 追问生成
-        if not supports or counters or not has_fact:
+        if not supports or counters or not has_fact or conflict_notes:
             q = std["follow_up"]
             # 根据 focus 调整优先级：把与 focus 相关的追问排前
             priority = 0
@@ -336,7 +374,7 @@ def analyze(payload: dict, request_id: str = None) -> dict:
         # 置信度
         if not supports:
             confidence = "low"
-        elif counters:
+        elif conflict_notes or counters:
             confidence = "medium"
         elif has_fact:
             confidence = "high"
@@ -352,6 +390,7 @@ def analyze(payload: dict, request_id: str = None) -> dict:
             "confidence": confidence,
             "evidence_types": sorted(types_seen) if types_seen else ["gap"],
             "primary_owner": std["primary_owner"],
+            "conflict_notes": conflict_notes,
         })
 
     # 追问排序：按 priority 升序，再按标准顺序

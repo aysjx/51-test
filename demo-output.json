@@ -20,7 +20,10 @@
       "evidence_types": [
         "fact_observed"
       ],
-      "primary_owner": "业务面"
+      "primary_owner": "业务面",
+      "conflict_notes": [
+        "业务面记录 与 HR 初访记录 对同一标准评价不一致，建议人工核实。"
+      ]
     },
     {
       "criterion": "S2-AI工程打样",
@@ -42,7 +45,8 @@
       "evidence_types": [
         "fact_observed"
       ],
-      "primary_owner": "技术面"
+      "primary_owner": "技术面",
+      "conflict_notes": []
     },
     {
       "criterion": "S3-人机协同与风险意识",
@@ -59,7 +63,8 @@
       "evidence_types": [
         "fact_observed"
       ],
-      "primary_owner": "技术面"
+      "primary_owner": "技术面",
+      "conflict_notes": []
     },
     {
       "criterion": "S4-业务共创和推进",
@@ -75,7 +80,8 @@
       "evidence_types": [
         "fact_observed"
       ],
-      "primary_owner": "业务面"
+      "primary_owner": "业务面",
+      "conflict_notes": []
     },
     {
       "criterion": "S5-评测、复盘和能力交接",
@@ -96,14 +102,15 @@
       "evidence_types": [
         "fact_observed"
       ],
-      "primary_owner": "HR/综合面"
+      "primary_owner": "HR/综合面",
+      "conflict_notes": []
     }
   ],
   "unverified_claims": [
     "「缩短 40%」缺少基线、测量方法或第三方佐证。"
   ],
   "evidence_gaps": [
-    "当前五项标准均已覆盖基础证据，建议复核事实强度。"
+    "S1-业务场景诊断 不同面试官记录存在冲突；建议人工核实。"
   ],
   "recommended_interview_questions": [
     "请举例说明业务目标模糊时，你如何还原流程、区分事实与根因假设并缩小试点？",
@@ -132,7 +139,7 @@
   "sensitive_hits": [],
   "human_decision_required": true,
   "decision_boundary": "本工具不输出录用、淘汰、定级或薪酬决定；最终判断必须由人负责。",
-  "generated_at": "2026-07-31T10:19:08.926942+00:00",
-  "request_id": "2caa71742714",
-  "elapsed_ms": 4
+  "generated_at": "2026-07-31T10:39:31.039964+00:00",
+  "request_id": "4a0ab0c0b66b",
+  "elapsed_ms": 1
 }
